@@ -45,6 +45,5 @@ for (int i=0; i<p; i++){
        	cout << A << ": " << "N" << endl;
     }	
 }
-
 return 0;
 }
