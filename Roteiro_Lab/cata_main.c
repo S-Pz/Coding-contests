@@ -32,6 +32,7 @@ int main(){
         endl;
         
         if(op == 1){
+
             printf("Quantos produtos deseja adicionar ao catalogo? ");
             endl;
             scanf("%d",&qtd_itens);
@@ -77,7 +78,6 @@ int main(){
             break;
         }
     }
-
     limpaCatalogo(catalogo);
     return 0;
 }

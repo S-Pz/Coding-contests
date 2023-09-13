@@ -4,13 +4,11 @@
 
 #include "cata.h"
 
-
 struct CatalogoProdutos *criarCatalogo(struct CatalogoProdutos *c) {
     
     c = (struct CatalogoProdutos *) malloc(sizeof(struct CatalogoProdutos));
     c->qtdProdutos = 0;
     
-
     printf("Catálogo criado com sucesso!");
     endl;
 
@@ -27,13 +25,12 @@ void adicionarProduto(struct CatalogoProdutos *c, char *nome, double preco, int 
         
         c->qtdProdutos ++;
 
+        printf("Produto adicionado com sucesso!");
+        endl;
     }else{
         printf("Catálogo cheio!");
         endl;
     }
-
-    printf("Produto adicionado com sucesso!");
-    endl;
 }
 
 int verificarEstoque(struct CatalogoProdutos *c, char *nome) {
