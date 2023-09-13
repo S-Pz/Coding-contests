@@ -58,7 +58,6 @@ void imprimirCatalogo(struct CatalogoProdutos *c) {
         endl;
         printf("Quantidade: %d",c->Produtos[i].quantidade);
         endl;
-
         printf("_________________________________________________________");
         endl;
     }

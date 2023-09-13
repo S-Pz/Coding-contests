@@ -14,39 +14,52 @@ int main(){
 
     catalogo = criarCatalogo(catalogo);
 
-    printf("Quantos produtos deseja adicionar ao catalogo? ");
-    endl;
-    scanf("%d",&qtd_itens);
-
-    for(int i=0; i<qtd_itens; i++){
+    while(1){
 
         printf("_____________________________________");
         endl;
-
-        printf("Digite o nome do produto: %d",i+1);
+        printf("Digite 0 para sair");
+        endl;
+        printf("Digite 1 para adicionar o produtos ao catalogo");
+        endl;
+        printf("Digite 2 para verificar o estoque de um produto");
+        endl;
+        printf("Digite 3 para imprimir o catalogo");
         endl;
 
-        while (getchar() != '\n'); 
-        fgets(nome, sizeof(nome), stdin);
-
-        printf("Digite o preco do produto: %d",i+1);
+        scanf("%d",&op);
+        printf("_____________________________________");
         endl;
-        scanf("%lf",&preco);
+        
+        if(op == 1){
+            printf("Quantos produtos deseja adicionar ao catalogo? ");
+            endl;
+            scanf("%d",&qtd_itens);
 
-        printf("Digite a quantidade do produto: %d",i+1);
-        endl;
-        scanf("%d",&qtd_prod);
+            for(int i=0; i<qtd_itens; i++){
 
-        adicionarProduto(catalogo, nome, preco, qtd_prod);
-    }
+                printf("_____________________________________");
+                endl;
 
-    printf("Digite 1 para verificar o estoque de um produto ou 2 para imprimir o catalogo: ");
-    endl;
-    scanf("%d",&op);
+                printf("Digite o nome do produto: %d",i+1);
+                endl;
 
-    switch (op){
+                while (getchar() != '\n'); 
+                fgets(nome, sizeof(nome), stdin);
 
-        case 1:
+                printf("Digite o preco do produto: %d",i+1);
+                endl;
+                scanf("%lf",&preco);
+
+                printf("Digite a quantidade do produto: %d",i+1);
+                endl;
+                scanf("%d",&qtd_prod);
+
+                adicionarProduto(catalogo, nome, preco, qtd_prod);
+            }
+        }
+        if(op == 2){
+
             printf("Digite o nome do produto que deseja verificar: ");
             endl;
             
@@ -55,17 +68,16 @@ int main(){
             
             printf("Se possui: %d",verificarEstoque(catalogo, nome));
             endl;
-        break;
-        case 2:    
-            imprimirCatalogo(catalogo); 
-        break;   
-        default:
-            printf("Opcao invalida!");
-            endl;
-        break;
+        }
+        if(op == 3){
+            imprimirCatalogo(catalogo);
+        }
+
+        if(op == 0){
+            break;
+        }
     }
 
     limpaCatalogo(catalogo);
-
     return 0;
 }
