@@ -49,8 +49,10 @@ struct Conjunto *interseccao_conjunto(struct Conjunto *conjunto1, struct Conjunt
 struct Conjunto *diferenca_conjunto(struct Conjunto *conjunto1, struct Conjunto *conjunto2){
 
     int aux = 0;
-    struct Conjunto *diferenca = (struct Conjunto*) malloc(2*sizeof(struct Conjunto));
-
+    // fazer a diferença de conjunto1 - conjunto2
+    // utilizar a funçao pertence_conjunto para verificar se o elemento pertence ao conjunto
+    
+    struct Conjunto *diferenca = cria_conjunto_vazio(diferenca);
     for(int i = 0; i<conjunto1->qtd_elementos; i++){
         for (int j = 0; j<conjunto2->qtd_elementos; j++){
             if(conjunto1->elementos[i] != conjunto2->elementos[j]){
@@ -67,7 +69,6 @@ int pertence_conjunto(struct Conjunto *conjunto, int elemento) {
 
     int existe = conjunto_vazio(conjunto);
     
-
     return 0;
 }
 
