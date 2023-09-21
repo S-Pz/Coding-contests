@@ -51,24 +51,31 @@ struct Conjunto *diferenca_conjunto(struct Conjunto *conjunto1, struct Conjunto 
     int aux = 0;
     // fazer a diferença de conjunto1 - conjunto2
     // utilizar a funçao pertence_conjunto para verificar se o elemento pertence ao conjunto
-    
+
     struct Conjunto *diferenca = cria_conjunto_vazio(diferenca);
+    
     for(int i = 0; i<conjunto1->qtd_elementos; i++){
-        for (int j = 0; j<conjunto2->qtd_elementos; j++){
-            if(conjunto1->elementos[i] != conjunto2->elementos[j]){
-                diferenca->elementos[aux] = conjunto1->elementos[i];
-                diferenca->qtd_elementos++;
-                aux++;
-            }
+        
+        int pertence = pertence_conjunto(conjunto2, conjunto1->elementos[i]);
+        
+        if(pertence == 0){
+            diferenca->elementos[aux] = conjunto1->elementos[i];
+            diferenca->qtd_elementos++;
+            aux++;
         }
     }   
+    
     return diferenca;
 }
 
 int pertence_conjunto(struct Conjunto *conjunto, int elemento) {
 
-    int existe = conjunto_vazio(conjunto);
-    
+    for(int i = 0; i < conjunto->qtd_elementos; i++){
+        if(conjunto->elementos[i] == elemento){
+            return 1;
+        }
+    }
+
     return 0;
 }
 

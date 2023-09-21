@@ -45,5 +45,4 @@ int tamanho_conjunto(struct Conjunto *conjunto);
 void imprime_conjunto(struct Conjunto *conjunto);
 void limpa_conjunto(struct Conjunto *conjunto);
 
-
 #endif // CONJUNTO_H
