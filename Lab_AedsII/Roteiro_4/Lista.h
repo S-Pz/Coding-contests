@@ -32,12 +32,15 @@ void destroiLista(Lista *li){
 
 int procura(Lista *li, int x){
     
+    int indi;
+
     if(li == NULL) return -1;
     
     for(int i=0; i<li->qtd; i++){
         if(li->dados[i] == x)
-            return i;
+            indi = i;
     }
+    return indi;
 }
 
 int tamanhoLista(Lista *li){
@@ -57,7 +60,7 @@ int listaVazia(Lista *li){
         return -1;
     return (li->qtd == 0);
 }
-//errado
+
 int insereOrder(Lista *li, int elem){
 
     if(li == NULL) return 0;
@@ -80,6 +83,7 @@ int insereOrder(Lista *li, int elem){
         return 0;
     }
 }
+
 int insereFim(Lista* li, int elem){
     if(li == NULL) return 0;
     if(!listaCheia(li)){
@@ -117,6 +121,30 @@ int procuraMenor(Lista *li){
     return menor;
 }
 
+int removeElem(Lista *li, int elem){
+
+    if(li == NULL) return 0;
+
+    if(!listaVazia(li)){
+
+        int i, indi;
+
+        indi = procura(li, elem);
+
+        if(indi == -1) return 0;
+        
+        for(i=indi; i<li->qtd-1; i++){
+            li->dados[i] = li->dados[i+1];
+        }
+
+        li->qtd--;
+        
+        return 1;
+    }
+
+    return 0;
+}
+
 int removeOcorre(Lista *li, int elem){
 
     if(li == NULL) return 0;
@@ -125,30 +153,16 @@ int removeOcorre(Lista *li, int elem){
 
     for(int i=0; i<li->qtd; i++){
         
-        indi = procura(li, elem);
+        if(li->dados[i] == elem){
 
-        if(indi < menor){
-            menor = indi;
-        }
+            removeElem(li, elem);
+
+            return 1;
+        }   
     }
-
+    return 0;
 }
-int removeElem(Lista *li, int elem){
 
-    if(li == NULL) return 0;
-    
-    if(!listaVazia(li)){
-        int i, indi;
-        indi = procura(li, elem);
-        if(indi == -1) return 0;
-        for(i=indi; i<li->qtd-1; i++){
-            li->dados[i] = li->dados[i+1];
-        }
-        li->qtd--;
-        return 1;
-
-
-}
 int imprimeLista(Lista *li){
     if(li == NULL) return 0;
     int i;
