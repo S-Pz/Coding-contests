@@ -1,30 +1,38 @@
 #include <bits/stdc++.h>
-
 #define endl '\n'
 
 using namespace std;
 
 int main(){
-
-    int PA, PB, anos=1;
+    
+    int T, PA,PB, anos=0;
     float G1, G2;
+    
+    cin >> T;
+    
+    for(int i = 0; i < T; i++){
+        
+        cin >> PA >> PB >> G1 >> G2;
+        
+        //G1 = ;
+        //G2 = (G2/100) * 100;
+        
+        while (PA <= PB) {
 
-    cin >> PA >> PB >> G1 >> G2;
+            PA += floor(PA * (G1 / 100.0));
+            PB += floor(PB * (G2 / 100.0));
+            
+            anos++;
 
-    G1 = G1/100;
-    G2 = G1/100;
-
-    do{
-        PA += PA * G1;
-        PB += PB * G2;
-        anos++;
-
-    }while(PA <= PB);
-
-    if(anos > 100)
+            if (anos > 100) break;
+        }
+    }
+    
+    if(anos >= 100){
         cout << "Mais de 1 seculo." << endl;
-    else
+    }else{
         cout << anos << " anos." << endl;
+    }
 
     return 0;
 }
