@@ -1,6 +1,5 @@
 #include "PilhaDin.h"
 
-
 Pilha *cria_Pilha(){
     
     Pilha *pi = (Pilha *) malloc(sizeof(Pilha));
