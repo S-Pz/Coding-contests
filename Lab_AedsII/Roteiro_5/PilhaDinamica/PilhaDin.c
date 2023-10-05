@@ -80,6 +80,7 @@ int remove_Pilha(Pilha *pi){
     NO *elem = pi->topo;
 
     pi->topo = elem->prox;
+
     free(elem);
 
     return 1;
@@ -87,7 +88,7 @@ int remove_Pilha(Pilha *pi){
 
 int ver_Topo(Pilha *pi){
 
-     if(pi == NULL){
+    if(pi == NULL){
         return 0;
     }
     if(pi->topo == NULL){
@@ -99,22 +100,5 @@ int ver_Topo(Pilha *pi){
 
 void imprime_Pilha(Pilha *pi) {
 
-    if (pi == NULL) {
-        return;
-    }
-
-    if (pilha_Vazia(pi)) {
-        printf("Pilha vazia.");
-        endl;
-        return;
-    }
-
-    NO *atual = pi->topo;
-    printf("Elementos: ");
-
-    while (atual != NULL) {
-        printf("%d ", atual->info);
-        atual = atual->prox;
-    }
-    endl;
+    
 }
