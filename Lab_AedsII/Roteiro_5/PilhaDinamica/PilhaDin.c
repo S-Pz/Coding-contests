@@ -99,5 +99,16 @@ int ver_Topo(Pilha *pi){
 
 void imprime_Pilha(Pilha *pi) {
 
-    
+   if (pi == NULL || pi->topo == NULL) {
+        printf("Pilha vazia\n");
+        return;
+    }
+
+    NO *elem = pi->topo;
+
+    while (elem != NULL) {
+        printf("%d ", elem->info);
+        elem = elem->prox;
+    }
+    endl;
 }
