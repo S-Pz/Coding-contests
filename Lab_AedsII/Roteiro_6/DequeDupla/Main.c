@@ -65,11 +65,11 @@ int main () {
                 break;
             case 6:
                 system("clear");
-                removeIni(D);
+                removeFim(D);
                 break;
             case 7:
                 system("clear");
-                removeFim(D);
+                removeIni(D);
                 break;
             case 8:
                 imprime(D);
@@ -83,6 +83,5 @@ int main () {
                 break;
         }
     }while(op != 0);   
-
     return 0;
 }
