@@ -15,9 +15,7 @@ int main(){
     int op, ano;
 
     do{
-        
-        int elem;
-
+    
         printf("0 - Sair");
         endl;
         printf("1 - Criar AVL");
@@ -109,13 +107,11 @@ int main(){
             case 8:
                 *cont = 0;
                 printf("Qtd elementos: %d", qtd_elementos(*A, cont));
-                
                 endl;
                 break;
             case 9:
                 printf("Destruindo árvore!");
                 endl;
-                
                 destroiAVL(A);
                 break;
         }

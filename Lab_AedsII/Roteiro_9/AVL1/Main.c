@@ -24,18 +24,18 @@ int main(){
         endl;
         printf("5 - Imprimir a AVL em ordem");
         endl;
-        printf("6 - Mostrar a quantidade de nos na AVL");
+        printf("8 - Mostrar a quantidade de nos na AVL");
         endl;
-        printf("7 - Destruir a AVL");
+        printf("9 - Destruir a AVL");
         endl;
 
         scanf("%d", &op);
 
         switch (op) {
             case 1:
-               A = criaAVL();
-               printf("AVL criada com sucesso");
-               endl;
+                A = criaAVL();
+                printf("AVL criada com sucesso");
+                endl;
                 break;
             case 2:
                 printf("Digite o elemento que deseja inserir:");
@@ -66,12 +66,12 @@ int main(){
                 endl;
                 break;
             */
-            case 6:
+            case 8:
                 *cont = 0;
                 printf("Qtd elementos: %d", qtd_elementos(*A, cont));
                 endl;
                 break;
-            case 7:
+            case 9:
                 printf("Destruindo arvore!");
                 endl;
                 destroiAVL(A);
