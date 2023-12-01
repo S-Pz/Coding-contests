@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-int comp; 
-int mov; 
+int *numbers;
+int comp, mov, numMax; 
 
 int* copiaVetor(int* v, int n){
     int i;
@@ -87,7 +87,35 @@ void MergeSortDE(int *v, int ini, int fim){
         MergeDE(v, ini, meio, fim);
     }
 }
+
+int fil(){
+
+  FILE *file = fopen("testFile/1000000-misturado.txt", "r");
+
+  if (file == NULL) {
+    printf("ERRO");
+    return 1;
+  }
+
+  fscanf(file,"%d",&numMax);
+
+  numbers = (int*) malloc (numMax*sizeof(int));
+
+  int i = 0;
+
+  while (fscanf(file, "%d", &numbers[i]) != EOF && i < numMax) {
+      printf("%d",numbers[i]);
+      i++;
+  }
+
+  fclose(file);
+
+  return 0;
+}
+
 int main(){
+
+    fil();
 
     //Atribuicoes iniciais
     srand(time(NULL));
@@ -97,18 +125,18 @@ int main(){
     int *v,*v2;
     int n;
     
-    printf("Digite o tamanho do vetor:\n");
-    scanf("%d", &n);
+    // printf("Digite o tamanho do vetor:\n");
+    // scanf("%d", &n);
     
-    v = (int*) malloc (n*sizeof(int));
+    //v = (int*) malloc (n*sizeof(int));
 
-    preencheAleatorio(v, n, 1, 100);
-    v2 = copiaVetor(v, n);
+    //preencheAleatorio(v, n, 1, 100);
+    v2 = copiaVetor(numbers, n);
 
     //imprimeVetor(v, n);
     
     t = clock();
-        MergeSort(v, 0, n-1);
+        MergeSort(numbers, 0, n-1);
     t = clock() - t;
     
     printf("-----Merge Sort crescente:\n");
@@ -117,7 +145,7 @@ int main(){
     printf("Movimentacoes: %d\n", mov);
     printf("Memoria (bytes): %d\n", n*sizeof(int));
 
-    imprimeVetor(v, n);
+    imprimeVetor(numbers, n);
 
     comp = 0; mov = 0;
 
