@@ -90,27 +90,30 @@ void MergeSortDE(int *v, int ini, int fim){
 
 int fil(){
 
-  FILE *file = fopen("testFile/1000000-misturado.txt", "r");
+    //FILE *file = fopen("testFile/10000-misturado.txt", "r");
+    //FILE *file = fopen("testFile/10000-contrario.txt", "r");
+    //FILE *file = fopen("testFile/10000-ordenado.txt", "r");
+    FILE *file = fopen("testFile/10000-quaseordenado.txt", "r");
 
-  if (file == NULL) {
-    printf("ERRO");
-    return 1;
-  }
+    if (file == NULL) {
+        printf("ERRO");
+        return 1;
+    }
 
-  fscanf(file,"%d",&numMax);
+    fscanf(file,"%d",&numMax);
 
-  numbers = (int*) malloc (numMax*sizeof(int));
+    numbers = (int*) malloc (numMax*sizeof(int));
 
-  int i = 0;
+    int i = 0;
 
-  while (fscanf(file, "%d", &numbers[i]) != EOF && i < numMax) {
-      printf("%d",numbers[i]);
-      i++;
-  }
+    while (fscanf(file, "%d", &numbers[i]) != EOF && i < numMax) {
+        //printf("%d",numbers[i]);
+        i++;
+    }
 
-  fclose(file);
+    fclose(file);
 
-  return 0;
+    return 0;
 }
 
 int main(){
@@ -122,7 +125,7 @@ int main(){
     comp = 0; mov = 0;
     clock_t t;
 
-    int *v,*v2;
+    int *v2;
     int n;
     
     // printf("Digite o tamanho do vetor:\n");
@@ -131,12 +134,12 @@ int main(){
     //v = (int*) malloc (n*sizeof(int));
 
     //preencheAleatorio(v, n, 1, 100);
-    v2 = copiaVetor(numbers, n);
+    v2 = copiaVetor(numbers, numMax);
 
     //imprimeVetor(v, n);
     
     t = clock();
-        MergeSort(numbers, 0, n-1);
+        MergeSort(numbers, 0, numMax-1);
     t = clock() - t;
     
     printf("-----Merge Sort crescente:\n");
@@ -145,12 +148,12 @@ int main(){
     printf("Movimentacoes: %d\n", mov);
     printf("Memoria (bytes): %d\n", n*sizeof(int));
 
-    imprimeVetor(numbers, n);
+    //imprimeVetor(numbers, numMax);
 
     comp = 0; mov = 0;
 
     t = clock();
-        MergeSortDE(v2, 0, n-1);
+        MergeSortDE(v2, 0, numMax-1);
     t = clock() - t;
     
     printf("-----Merge Sort decrescente:\n");
@@ -159,9 +162,8 @@ int main(){
     printf("Movimentacoes: %d\n", mov);
     printf("Memoria (bytes): %d\n", n*sizeof(int));
 
-    imprimeVetor(v2, n);
+    //imprimeVetor(v2, numMax);
 
-    free(v);
     free(v2);
 
     return 0;
