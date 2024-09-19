@@ -1,3 +1,10 @@
 #Directory
 __pycache__/
 .vscode/
+/target
+/container-context
+/container-target
+/libs
+
+#file
+*.lock
