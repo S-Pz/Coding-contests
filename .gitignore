@@ -1,1 +1,3 @@
-//*.pdf
+#Directory
+__pycache__/
+.vscode/
