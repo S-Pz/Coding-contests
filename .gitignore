@@ -1,4 +1,5 @@
-#Directory
+# Directory #
+#############
 __pycache__/
 .vscode/
 /target
@@ -6,6 +7,16 @@ __pycache__/
 /container-target
 /libs
 
-#file
+# files #
+#########
 *.lock
 *.txt
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so

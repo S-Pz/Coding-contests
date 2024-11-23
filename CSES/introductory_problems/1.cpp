@@ -1,3 +1,9 @@
+/*-------------------------------
+|                               |
+|PROBLEM NAME: Weird Algorithm  |
+|                               |
+--------------------------------*/
+
 #include <bits/stdc++.h>
 
 #define endl '\n'
